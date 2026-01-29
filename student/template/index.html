@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="main-section">
+
+        <div class="nav">
+            <div class="left-nav">
+                <div class="main-head"><p>College Student Registration</p></div>
+            </div>
+
+            <div class="right-nav">
+
+                <div class="home"><p>Home</p></div>
+
+                <div class="about"><p>About</p></div>
+
+                <div class="contact"><p>Contact</p></div>
+
+                <div class="login">
+                    <a href=""><button>Login</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="line">
+
+        </div>
+
+        <div class="registered">
+            <p>Registered Students</p>
+        </div>
+
+        <table>
+        <tr>
+        
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Course</th>
+                <th>Actions</th>
+            
+        </tr>
+        {% for i in stds %}
+        
+            <tr>
+                <td>{{i.pk}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.age}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.cname}}</td>
+                <td><a href="../update/{{i.pk}}">Edit</a></td>
+                <td><a href="../delete/{{i.pk}}" onclick="alert('Are you sure you want to delete?')">Delete</a></td>
+            </tr>
+        
+        {% endfor %}
+    </table>
+
+    </div>
+</body>
+</html>
