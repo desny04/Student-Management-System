@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="../"><button>GO BACK</button></a>
+
+    <div class="flex flex-col justify-center items-center h-100">
+
+    <!-- <p class="font-bold">Student Registration</p> -->
+
+    <form action="" method="post" class="flex flex-col justify-evenly h-60">
+
+        {% csrf_token %}
+
+    <input type="text" name="name" id="name" placeholder="Name:" value="{{std.name}}" class=" text-black border-2 border-black rounded px-5"><br>
+
+    <input type="email" name="email" id="email" placeholder="Email:" value="{{std.email}}" class="border-2 border-black rounded px-5"><br>
+
+    <input type="age" name="age" id="age" placeholder="Age:" value="{{std.age}}" class="border-2 border-black rounded px-5"><br>
+
+    <input type="tel" name="phone" id="phone" placeholder="Phone Number:" value="{{std.phone}}" class="border-2 border-black rounded px-5"><br>
+
+    <select name="course" id="course" class="border-2 border-black rounded px-5">
+
+        <option selected disabled>--select course--</option>
+
+        {% for i in courses %}
+            <option value="{{i}}"{% if std.cname.pk == i.pk %} selected {% endif %}>{{i.cname}}</option>
+        {% endfor %}
+    </select><br>
+
+    <input type="submit" value="UPDATE" class="text-white bg-blue-500 rounded">
+    </form>
+
+    </div>
+</body>
+</html>
