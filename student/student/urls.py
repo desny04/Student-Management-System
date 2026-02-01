@@ -20,5 +20,12 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('addStudents/',views.addStudents),
+    path('editStudents/<pk>',views.editStudents),
     path('',views.index),
+    path('deleteStudents/<pk>',views.deleteStudents),
+    path('registerUser/',views.registerUser),
+    path('login/',views.loginUser),
+    path('logout/',views.logoutUser),
 ]
+
